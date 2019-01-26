@@ -1,0 +1,20 @@
+{
+    "name": "cercatrova",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node src/app",
+        "dev": "nodemon src/app"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.16.4",
+        "hbs": "^4.0.1",
+        "mongoose": "^5.4.5",
+        "morgan": "^1.9.1",
+        "multer": "^1.4.1"
+    }
+}
