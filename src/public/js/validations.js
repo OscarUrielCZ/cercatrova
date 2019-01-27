@@ -34,19 +34,16 @@ window.addEventListener('load', function() {
             ecoResult.innerHTML = 'La imágen no es válida';
         } else {
             let image = file.files[0];
+            let form = document.getElementById('eco-form');
             let formData = new FormData();
 
-            formData.append('name', ecoName.value);
-            formData.append('image', image);
+            formData.append('name', ecoName.value.toLowerCase());
+            formData.append('image', image, image.name);
 
-            let data = {
-                name: ecoName.value,
-                status: 'ok'
-            }
-
-            fetch('http://127.0.0.1:3000/nuevo-ecosistema', {
+            fetch('/nuevo-ecosistema', {
                     method: 'POST',
-                    body: JSON.stringify(data)
+                    body: formData,
+                    redirect: 'follow'
                 })
                 .then(resp => resp.json())
                 .then(resp => console.log(resp))
