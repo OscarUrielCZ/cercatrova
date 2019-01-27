@@ -27,25 +27,32 @@ window.addEventListener('load', function() {
 
     newEco.addEventListener('click', function() {
         if (!ecoName.value || !file.files || !file.files[0]) {
-            ecoResult.className = 'alert-danger'
+            ecoResult.className = 'alert alert-danger'
             ecoResult.innerHTML = 'El nombre y la imágen son necesarios';
         } else if (file.files[0].type.indexOf('image') == -1) {
-            ecoResult.className = 'alert-danger'
+            ecoResult.className = 'alert alert-danger'
             ecoResult.innerHTML = 'La imágen no es válida';
         } else {
             let image = file.files[0];
+            let formData = new FormData();
+
+            formData.append('name', ecoName.value);
+            formData.append('image', image);
+
             let data = {
                 name: ecoName.value,
-                image: image
-            };
+                status: 'ok'
+            }
 
-            fetch('http://localhost:3000/nuevo-ecosistema', {
-                method: 'POST',
-                body: JSON.stringify(data),
-                headers: { 'Content-Type': 'application/json' }
-            });
+            fetch('http://127.0.0.1:3000/nuevo-ecosistema', {
+                    method: 'POST',
+                    body: JSON.stringify(data)
+                })
+                .then(resp => resp.json())
+                .then(resp => console.log(resp))
+                .catch(err => console.log(err));
 
-            ecoResult.className = 'alert-success'
+            ecoResult.className = 'alert alert-success'
             ecoResult.innerHTML = 'Bien hecho';
         }
 

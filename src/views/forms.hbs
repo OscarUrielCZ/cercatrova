@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-lg-7">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
                 <h3 class="card-title">Nuevo peleador</h3>
 
                 <form action="/nuevo-peleador" action="post">
@@ -19,9 +19,9 @@
     </div>
     <div class="col-lg-5">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
                 <h3 class="card-title">Nuevo ecosistema</h3>
-                <div class="alert" role="alert" id="eco-result" style="display: none"></div>
+                <div class="alert" id="eco-result" style="display: none"></div>
                 <form>
                     <div class="form-group">
                         <div class="input-group">
@@ -35,12 +35,10 @@
                             <input type="file" class="form-control" id="eco-img">
                         </div>
                     </div>
-                    <div class="card preview-card" style="display: none">
-                        <div class="card-body">
-                            <img class="img-fluid" id="preview" src="" alt="No hay vista previa">
-                        </div>
+                    <div class="container preview-card" style="display: none">
+                        <img class="img-fluid" id="preview" src="" alt="No hay vista previa">
                     </div>
-                    <input type="button" class="btn" id="new-eco" value="Guardar">
+                    <input type="button" class="btn btn-success" id="new-eco" value="Guardar">
                 </form>
             </div>
         </div>

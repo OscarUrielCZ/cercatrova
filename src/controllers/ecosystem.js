@@ -1,7 +1,10 @@
 const ctrl = {
     save: (req, res) => {
-        console.log(req.body);
-        res.send('Saved');
+        console.log('Hola');
+        console.log(req);
+        res.json({
+            message: 'recived'
+        });
     }
 };
 

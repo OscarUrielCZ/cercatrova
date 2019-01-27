@@ -1,0 +1,23 @@
+/* General styles */
+
+.main {
+    padding: 15px;
+}
+
+.card {
+    margin-top: 15px;
+    padding: 10px;
+}
+
+
+/* Forms */
+
+.alert {
+    padding: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#preview {
+    margin-bottom: 20px;
+}
