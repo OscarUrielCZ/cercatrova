@@ -1,10 +1,10 @@
 "use strict";
 
 window.addEventListener('load', function() {
-    let file = document.getElementById('eco-img');
-    let newEco = document.getElementById('new-eco');
-    let ecoResult = document.getElementById('eco-result');
-    let ecoName = document.getElementById('eco-name');
+    let file = document.getElementById('tech-img');
+    let newTech = document.getElementById('new-tech');
+    let techResult = document.getElementById('tech-result');
+    let techName = document.getElementById('tech-name');
 
     file.addEventListener('change', function() {
         let previewCard = document.querySelector('.preview-card');
@@ -25,19 +25,18 @@ window.addEventListener('load', function() {
         }
     });
 
-    newEco.addEventListener('click', function() {
-        if (!ecoName.value || !file.files || !file.files[0]) {
-            ecoResult.className = 'alert alert-danger'
-            ecoResult.innerHTML = 'El nombre y la imágen son necesarios';
+    newTech.addEventListener('click', function() {
+        if (!techName.value || !file.files || !file.files[0]) {
+            techResult.className = 'alert alert-danger'
+            techResult.innerHTML = 'El nombre y la imágen son necesarios';
         } else if (file.files[0].type.indexOf('image') == -1) {
-            ecoResult.className = 'alert alert-danger'
-            ecoResult.innerHTML = 'La imágen no es válida';
+            techResult.className = 'alert alert-danger'
+            techResult.innerHTML = 'La imágen no es válida';
         } else {
             let image = file.files[0];
-            let form = document.getElementById('eco-form');
             let formData = new FormData();
 
-            formData.append('name', ecoName.value.toLowerCase());
+            formData.append('name', techName.value.toLowerCase());
             formData.append('image', image, image.name);
 
             fetch('/new-tech', {
@@ -50,20 +49,20 @@ window.addEventListener('load', function() {
                         let em = resp.message.errors.name;
                         let info = em.message.replace(em.path, em.value);
 
-                        ecoResult.className = 'alert alert-success'
-                        ecoResult.innerHTML = info;
+                        techResult.className = 'alert alert-success'
+                        techResult.innerHTML = info;
                     } else {
-                        ecoResult.className = 'alert alert-success'
-                        ecoResult.innerHTML = `Guardado correctamente: ${ resp.name }`;
+                        techResult.className = 'alert alert-success'
+                        techResult.innerHTML = `Guardado correctamente: ${ resp.name }`;
                     }
                 })
                 .catch(err => {
                     console.log(err);
-                    ecoResult.className = 'alert alert-danger'
-                    ecoResult.innerHTML = 'Algo salió mal';
+                    techResult.className = 'alert alert-danger'
+                    techResult.innerHTML = 'Algo salió mal';
                 });
         }
 
-        ecoResult.style.display = 'block';
+        techResult.style.display = 'block';
     });
 });

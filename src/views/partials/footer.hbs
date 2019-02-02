@@ -2,7 +2,9 @@
 		</div>
 	</div>
 	<!-- End Row -->
-	<script src="js/validations.js"></script>
+	{{#each scripts }}
+		<script src="js/{{ this }}"></script>
+	{{/each }}
 </body>
 
 </html>

@@ -38,7 +38,7 @@ const ctrl = {
 
             return res.json({
                 ok: true,
-                technology: newtech
+                technology: techDB
             });
         });
     }

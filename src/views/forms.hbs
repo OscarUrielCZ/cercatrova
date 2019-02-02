@@ -14,10 +14,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <select name="" id="">
-                            <option value="">Valor</option>
+                        <label for="technology">Tecnología</label>
+                        <select class="form-control" name="technology" id="technology">
+                            {{#each techs }}
+                                <option value="{{ _id }}">{{ name }}</option>
+                            {{/each }}
                         </select>
                     </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="tech-file">
+                    </div>
+                    <input type="button" class="btn btn-success" id="new-util" value="Guardar">
                 </form>
             </div>
         </div>
@@ -26,24 +33,18 @@
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Nueva tecnología</h3>
-                <div class="alert" id="eco-result" style="display: none"></div>
-                <form id="exo-form">
+                <div class="alert" id="tech-result" style="display: none"></div>
+                <form>
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="mdi mdi-pine-tree"></i></div>
-                            <input type="text" class="form-control" id="eco-name" placeholder="Nombre de la tecnología">
-                        </div>
+                        <input type="text" class="form-control" id="tech-name" placeholder="Nombre de la tecnología">
                     </div>
                     <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon"><i class="mdi mdi-image"></i></div>
-                            <input type="file" class="form-control" id="eco-img">
-                        </div>
+                        <input type="file" class="form-control" id="tech-img">
                     </div>
                     <div class="container preview-card" style="display: none">
                         <img class="img-fluid" id="preview" src="" alt="No hay vista previa">
                     </div>
-                    <input type="button" class="btn btn-success" id="new-eco" value="Guardar">
+                    <input type="button" class="btn btn-success" id="new-tech" value="Guardar">
                 </form>
             </div>
         </div>

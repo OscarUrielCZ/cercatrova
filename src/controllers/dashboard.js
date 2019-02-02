@@ -6,7 +6,7 @@ const ctrl = {
 
         res.render('forms', {
             title: 'CT | Nuevo',
-            tech: allTech,
+            techs: allTech,
             scripts: ['validations.js']
         });
     }
