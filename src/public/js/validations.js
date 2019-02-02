@@ -40,17 +40,28 @@ window.addEventListener('load', function() {
             formData.append('name', ecoName.value.toLowerCase());
             formData.append('image', image, image.name);
 
-            fetch('/nuevo-ecosistema', {
+            fetch('/new-tech', {
                     method: 'POST',
-                    body: formData,
-                    redirect: 'follow'
+                    body: formData
                 })
                 .then(resp => resp.json())
-                .then(resp => console.log(resp))
-                .catch(err => console.log(err));
+                .then(resp => {
+                    if (!resp.ok) {
+                        let em = resp.message.errors.name;
+                        let info = em.message.replace(em.path, em.value);
 
-            ecoResult.className = 'alert alert-success'
-            ecoResult.innerHTML = 'Bien hecho';
+                        ecoResult.className = 'alert alert-success'
+                        ecoResult.innerHTML = info;
+                    } else {
+                        ecoResult.className = 'alert alert-success'
+                        ecoResult.innerHTML = `Guardado correctamente: ${ resp.name }`;
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    ecoResult.className = 'alert alert-danger'
+                    ecoResult.innerHTML = 'Algo salió mal';
+                });
         }
 
         ecoResult.style.display = 'block';
