@@ -5,15 +5,28 @@ const ctrl = {
         let title = req.body.title;
         let desc = req.body.desc;
         let tech = req.body.technology;
-        let file = req.file;
 
-        // let util = new Utility({
+        console.log(tech);
 
-        // });
+        let util = new Utility({
+            title,
+            desc,
+            tech
+        });
 
-        console.log(req.body);
-        console.log(file);
-        res.send('Recived');
+        util.save((err, utilDB) => {
+            if (err) {
+                return res.status(500).json({
+                    ok: false,
+                    message: err
+                });
+            }
+
+            return res.json({
+                ok: true,
+                utility: utilDB
+            });
+        });
     }
 };
 

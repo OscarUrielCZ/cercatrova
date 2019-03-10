@@ -8,21 +8,18 @@
                 <div class="alert" id="util-result" style="display: none"></div>
                 <form action="/new-util" action="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="title" placeholder="Título de la utilidad">
+                        <input type="text" class="form-control" id="util-title" placeholder="Título de la utilidad">
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" id="util-desc" rows="3" placeholder="Descripción de la utilidad"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="technology">Tecnología</label>
-                        <select class="form-control" name="technology" id="technology">
+                        <select class="form-control" name="technology" id="util-technology">
                             {{#each techs }}
-                                <option value="{{ _id }}">{{ name }}</option>
+                                <option value="{{ name }}">{{ name }}</option>
                             {{/each }}
                         </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="util-file">
                     </div>
                     <input type="button" class="btn btn-success" id="new-util" value="Guardar">
                 </form>

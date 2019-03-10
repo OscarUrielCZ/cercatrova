@@ -1,0 +1,19 @@
+{{> header }}
+
+<div class="container">
+    <div class="row">
+        {{#each utils }}
+            <div class="card col-md-3">
+                <div class="card-title">
+                    {{ this.title }} <br>
+                    <small> {{ this.tech }} </small>
+                </div>
+                <div class="card-body">
+                    <p>{{ this.desc }}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+{{> footer }}

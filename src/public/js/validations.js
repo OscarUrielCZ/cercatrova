@@ -3,14 +3,10 @@
 window.addEventListener('load', function() {
     let file = document.getElementById('tech-img');
     let newTech = document.getElementById('new-tech');
+    let newUtil = document.getElementById('new-util');
 
     let utilResult = document.getElementById('util-result');
     let techResult = document.getElementById('tech-result');
-
-
-    let techName = document.getElementById('tech-name');
-
-    let newUtil = document.getElementById('new-util');
 
     file.addEventListener('change', function() {
         let previewCard = document.querySelector('.preview-card');
@@ -32,6 +28,8 @@ window.addEventListener('load', function() {
     });
 
     newTech.addEventListener('click', function() {
+        let techName = document.getElementById('tech-name');
+
         if (!techName.value || !file.files || !file.files[0]) {
             techResult.className = 'alert alert-danger'
             techResult.innerHTML = 'El nombre y la imágen son necesarios';
@@ -42,7 +40,7 @@ window.addEventListener('load', function() {
             let image = file.files[0];
             let formData = new FormData();
 
-            formData.append('name', techName.value.toLowerCase());
+            formData.append('name', techName.value);
             formData.append('image', image, image.name);
 
             fetch('/new-tech', {
@@ -55,11 +53,12 @@ window.addEventListener('load', function() {
                         let em = resp.message.errors.name;
                         let info = em.message.replace(em.path, em.value);
 
-                        techResult.className = 'alert alert-success'
+                        techResult.className = 'alert alert-danger'
                         techResult.innerHTML = info;
                     } else {
                         techResult.className = 'alert alert-success'
-                        techResult.innerHTML = `Guardado correctamente: ${ resp.name }`;
+                        techResult.innerHTML = `Guardado correctamente: ${ resp.technology.name }`;
+                        location.reload();
                     }
                 })
                 .catch(err => {
@@ -73,11 +72,9 @@ window.addEventListener('load', function() {
     });
 
     newUtil.addEventListener('click', function() {
-        let title = document.getElementById('title');
+        let title = document.getElementById('util-title');
         let desc = document.getElementById('util-desc');
-        let technology = document.getElementById('technology');
-        let utilFile = document.getElementById('util-file');
-        let file = utilFile.files[0];
+        let technology = document.getElementById('util-technology');
 
         if (!title.value) {
             utilResult.className = 'alert alert-danger';
@@ -88,21 +85,29 @@ window.addEventListener('load', function() {
             formData.append('title', title.value);
             formData.append('desc', desc.value);
             formData.append('technology', technology.value);
-            if (file) formData.append('file', file);
 
             fetch('/new-util', {
                     method: 'POST',
                     body: formData
                 })
-                .then(data => console.log(data))
-                .catch(err => console.log(err));
+                .then(data => data.json())
+                .then(resp => {
+                    if (!resp.ok) {
+                        let em = resp.message.errors.name;
+                        let info = em.message.replace(em.path, em.value);
 
-            utilResult.className = 'alert alert-success';
-            utilResult.innerHTML = 'Se ha guardado correctamente';
-
-            console.log(title.value);
-            console.log(desc.value);
-            console.log(technology.value);
+                        utilResult.className = 'alert alert-danger'
+                        utilResult.innerHTML = info;
+                    } else {
+                        utilResult.className = 'alert alert-success';
+                        utilResult.innerHTML = `Se ha guardado correctamente ${ resp.utility.title }`;
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                    utilResult.className = 'alert alert-danger'
+                    utilResult.innerHTML = 'Algo salió mal';
+                });
         }
 
         utilResult.style.display = 'block';
