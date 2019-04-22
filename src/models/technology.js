@@ -6,11 +6,6 @@ const techSchema = new Schema({
         type: String,
         unique: true,
         required: [true, 'El nombre de la tecnología es requerido']
-    },
-    image: {
-        type: String,
-        unique: true,
-        required: [true, 'La imágen de la teconología es requerida']
     }
 });
 

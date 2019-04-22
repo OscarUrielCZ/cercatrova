@@ -6,13 +6,13 @@ const ctrl = {
         let desc = req.body.desc;
         let tech = req.body.technology;
 
-        console.log(tech);
-
         let util = new Utility({
             title,
             desc,
             tech
         });
+
+        console.log(util);
 
         util.save((err, utilDB) => {
             if (err) {

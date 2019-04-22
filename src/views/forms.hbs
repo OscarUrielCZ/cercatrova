@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h3 class="card-title">Nueva Utilidad</h3>
                 <div class="alert" id="util-result" style="display: none"></div>
-                <form action="/new-util" action="post">
+                <form>
                     <div class="form-group">
                         <input type="text" class="form-control" id="util-title" placeholder="Título de la utilidad">
                     </div>
@@ -34,12 +34,6 @@
                 <form>
                     <div class="form-group">
                         <input type="text" class="form-control" id="tech-name" placeholder="Nombre de la tecnología">
-                    </div>
-                    <div class="form-group">
-                        <input type="file" class="form-control-file" id="tech-img">
-                    </div>
-                    <div class="container preview-card" style="display: none">
-                        <img class="img-fluid" id="preview" src="" alt="No hay vista previa">
                     </div>
                     <input type="button" class="btn btn-success" id="new-tech" value="Guardar">
                 </form>

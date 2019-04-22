@@ -3,7 +3,6 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const hbs = require('hbs');
-const multer = require('multer');
 
 const app = express();
 const indexRoutes = require('../routes/index');
@@ -19,7 +18,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(morgan('dev'));
-app.use(multer({ dest: path.join(__dirname, '../public/uploads') }).single('image'));
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -28,7 +26,6 @@ app.use((req, res, next) => {
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
 });
-
 
 app.use('/', indexRoutes);
 

@@ -1,51 +1,25 @@
 "use strict";
 
 window.addEventListener('load', function() {
-    let file = document.getElementById('tech-img');
     let newTech = document.getElementById('new-tech');
     let newUtil = document.getElementById('new-util');
 
     let utilResult = document.getElementById('util-result');
     let techResult = document.getElementById('tech-result');
 
-    file.addEventListener('change', function() {
-        let previewCard = document.querySelector('.preview-card');
-
-        if (file.files && file.files[0] && file.files[0].type.indexOf('image') != -1) {
-            let preview = document.getElementById('preview');
-            let image = file.files[0];
-            let reader = new FileReader();
-
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-            };
-
-            reader.readAsDataURL(image);
-            previewCard.style.display = 'inline-block';
-        } else {
-            previewCard.style.display = 'none';
-        }
-    });
-
     newTech.addEventListener('click', function() {
-        let techName = document.getElementById('tech-name');
+        let techName = document.getElementById('tech-name').value;
 
-        if (!techName.value || !file.files || !file.files[0]) {
+        if (!techName) {
             techResult.className = 'alert alert-danger'
-            techResult.innerHTML = 'El nombre y la imágen son necesarios';
-        } else if (file.files[0].type.indexOf('image') == -1) {
-            techResult.className = 'alert alert-danger'
-            techResult.innerHTML = 'La imágen no es válida';
+            techResult.innerHTML = 'El nombre es necesario';
         } else {
-            let image = file.files[0];
-            let formData = new FormData();
-
-            formData.append('name', techName.value);
-            formData.append('image', image, image.name);
+            let data = JSON.stringify({ name: techName });
 
             fetch('/new-tech', {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'application/json' },
+                    body: data
                 })
                 .then(resp => resp.json())
                 .then(resp => {
@@ -72,23 +46,31 @@ window.addEventListener('load', function() {
     });
 
     newUtil.addEventListener('click', function() {
-        let title = document.getElementById('util-title');
-        let desc = document.getElementById('util-desc');
-        let technology = document.getElementById('util-technology');
+        let title = document.getElementById('util-title').value;
+        let desc = document.getElementById('util-desc').value;
+        let technology = document.getElementById('util-technology').value;
 
-        if (!title.value) {
+        if (!title) {
             utilResult.className = 'alert alert-danger';
             utilResult.innerHTML = 'El titulo es necesario';
+        } else if (!desc) {
+            utilResult.className = 'alert alert-danger';
+            utilResult.innerHTML = 'La descripción es necesaria';
+        } else if (!technology) {
+            utilResult.className = 'alert alert-danger';
+            utilResult.innerHTML = 'La tecnología es necesaria';
         } else {
-            let formData = new FormData();
-
-            formData.append('title', title.value);
-            formData.append('desc', desc.value);
-            formData.append('technology', technology.value);
+            let data = {
+                title,
+                desc,
+                technology
+            };
+            data = JSON.stringify(data);
 
             fetch('/new-util', {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'application/json' },
+                    body: data
                 })
                 .then(data => data.json())
                 .then(resp => {
