@@ -7,6 +7,12 @@ const hbs = require('hbs');
 const app = express();
 const indexRoutes = require('../routes/index');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+
+if (process.env.NODE_ENV === 'dev') process.env.URLDB = 'mongodb://localhost:27017/cercatrova';
+else process.env.URLDB = process.env.MLAB_URL;
+
+app.set('urlDB', process.env.URLDB);
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'hbs');

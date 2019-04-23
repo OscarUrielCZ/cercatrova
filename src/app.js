@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 
-const { db } = require('./keys');
+const app = require('./config/server');
 
-mongoose.connect(db.URI, { useNewUrlParser: true })
+mongoose.connect(app.get('urlDB'), { useNewUrlParser: true, useCreateIndex: true })
     .then(() => {
-        const app = require('./config/server');
-
         app.listen(app.get('port'), () => {
             console.log(`Server on port ${ app.get('port') }`);
             console.log('Succesful connection to database');
