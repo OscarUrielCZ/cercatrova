@@ -1,19 +1,45 @@
 const express = require('express');
+
+const Note = require('../models/Note');
+
 const router = express.Router();
 
-const dash = require('../controllers/dashboard');
-const tech = require('../controllers/technology');
-const util = require('../controllers/utility');
+router.get('/', (req, res) => {
+	return res.render('index', { title : 'Dashboard' });
+});
 
-// dashboard
-router.get('/', (req, res) => res.render('index'));
-router.get('/nuevo', dash.formsview);
-router.get('/utilidades', dash.utilitiesview);
+router.get('/create-note', (req, res) => {
+	return res.render('notes-form', {
+		title: 'Nueva nota',
+		scripts: ['notes-form.js']
+	});
+});
 
-// technology 
-router.post('/new-tech', tech.save);
+router.post('/create-note', async(req, res) => {
+	
+	
+	let note = new Note({
+		title: req.body.title,
+		category: req.body.category,
+		description: req.body.description,
+		type: 'note',
+		available: true,
+		date: new Date(),
+		deadline: null
+	});
 
-// utility
-router.post('/new-util', util.save);
+	try {
+		let noteDB = await note.save();
+		return res.json({
+			ok: true,
+			note: noteDB
+		});
+	} catch(err) {
+		return res.status(400).json({
+			ok: false,
+			err
+		});
+	}
+});
 
 module.exports = router;
