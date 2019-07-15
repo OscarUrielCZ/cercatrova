@@ -1,8 +1,8 @@
-# Cerca Trova
+## Cerca Trova
 
 Carca Trova es una aplicación web donde puedes agregar las utilidades y las tecnologías que necesitas para su posterior uso.
 
-## Requerimientos
+### Requerimientos
 
 Tener instalado correctamente:
 
@@ -10,12 +10,12 @@ Tener instalado correctamente:
 - NodeJS
 - MongoDB
 
-## Instalación
+### Instalación
 
 No olvides ejecutar el comando ```npm install``` 
 No hace falta nada más
 
-## Lanzar aplicación
+### Lanzar aplicación
 
 Debes tener mongo corriendo, después ejecuta el comando
 ```
