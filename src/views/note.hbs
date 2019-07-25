@@ -1,0 +1,18 @@
+{{> header }}
+
+<div class="container">
+	<h4>{{ note.title }}</h4>
+	<p>{{ note.category }} - {{ toDate note.date }}</p>
+	<p>{{ note.description }}</p>
+	<a href="/" class="btn waves-effect waves-light page-yellow">
+		Regresar<i class="material-icons right">arrow_back</i>
+	</a>
+	<a id="delete-btn" class="btn waves-effect waves-light page-red">
+		Eliminar<i class="material-icons right">cancel</i>
+	</a>
+	<a id="update-btn" class="btn waves-effect waves-light page-orange">
+		Modificar<i class="material-icons right">edit</i>
+	</a>
+</div>
+
+{{> footer }}

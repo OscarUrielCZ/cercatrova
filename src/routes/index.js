@@ -18,23 +18,37 @@ router.get('/note/:id', async(req, res) => {
 	let note;
 
 	try {
-		note = await Note.find({ _id: id });
+		note = await Note.findOne({ _id: id });
 	} catch(err) {
-		return res.status(500).json({
-			ok: false,
-			err
+		return res.render('url-not-found', {
+			title: '¡Oh oh!',
+			message: `La nota con id ${ id } no existe`
 		});
 	}
 
-	if(!note) return res.render('url-not-found', {
-		title: '¡Oh oh!',
-		message: `La nota con id ${ id } no existe`
-	});
-
 	return res.render('note', {
 		title: 'Nota',
-		note
-	})
+		note: note,
+		scripts: ['note.js']
+	});
+});
+
+router.delete('/note/:id', async(req, res) => {
+	let id = req.params.id;
+	let note =  await Note.findById(id);
+	
+	if(!note) return res.status(502).json({
+		ok: false,
+		masssage: 'The note doesnt exist'
+	});
+
+	note.available = false;
+	await Note.findByIdAndUpdate(id, note);
+
+	return res.json({
+		ok: true,
+		message: 'Note removed successfully'
+	});
 });
 
 router.get('/create-note', (req, res) => {
