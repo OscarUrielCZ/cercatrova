@@ -13,11 +13,6 @@ const NoteSchema = new Schema({
 		type: String,
 		required: [true, 'The description is required']
 	},
-	type: {
-		type: String,
-		values: ['recorder', 'note'],
-		required: [true, 'The type is required']
-	},
 	available: {
 		type: Boolean,
 		default: true,
@@ -26,9 +21,6 @@ const NoteSchema = new Schema({
 	date: {
 		type: Date,
 		required: [true, 'The date is required']
-	},
-	deadline: {
-		type: Date
 	}
 });
 

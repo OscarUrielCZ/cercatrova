@@ -12,6 +12,21 @@
 	background-color: #eb3b5a;
 }
 
+.color-red {
+	color: #eb3b5a !important;
+}
+
+/* hover styles */
+
+.color-green:hover {
+	background-color: #20bf6b;
+	opacity: 0.7;
+}
+
+.color-red:hover {
+	opacity: 0.6;
+}
+
 /* Forms colors */
 
 /* label color */
