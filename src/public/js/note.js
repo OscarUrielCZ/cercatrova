@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 });
 
-getNoteId = () => {
+const getNoteId = () => {
 	let tags = location.pathname.split('/');
 	return tags[tags.length - 1];
 };

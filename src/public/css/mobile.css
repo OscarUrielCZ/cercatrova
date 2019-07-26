@@ -1,0 +1,26 @@
+body {
+	font-size: 32px;
+}
+
+p {
+	font-size: 32px !important;
+}
+
+h4 {
+	font-size: 50px;
+	margin-top: 50px;
+}
+
+.card {
+	padding: 10px;
+}
+
+.card-title {
+	margin-top: 15px;
+	margin-bottom: 30px !important;
+	font-size: 50px !important;
+}
+
+.btn-large {
+	padding: 10px;
+}

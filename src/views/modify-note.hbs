@@ -1,0 +1,33 @@
+{{> header }}
+
+<div class="container section">
+	<h4>Modifica tu nota</h4>
+	<form id="form">
+		<div class="row">
+			<div class="col s12 l6">
+				<input type="text" name="title" id="title" placeholder="Título de la nota" class="validate" value="{{ note.title }}" required>
+				<label for="title">Título de la nota</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 l6">
+				<input type="text" name="category" id="category" placeholder="Categoría" class="validate" value="{{ note.category }}" required>
+				<label for="category">Categoría</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<textarea name="description" id="description" class="materialize-textarea" required>{{ note.description }}</textarea>
+				<label for="description">Descripción</label>
+			</div>
+		</div>
+		<a href="/note/{{ note._id }}" class="btn waves-effect waves-light page-red">
+			Cancelar<i class="material-icons right">cancel</i>
+		</a>
+		<a id="save-btn" class="btn waves-effect waves-light page-color">
+			Guardar<i class="material-icons right">update</i>
+		</a>
+	</form>
+</div>
+
+{{> footer }}

@@ -9,7 +9,8 @@ router.get('/', async(req, res) => {
 
 	return res.render('index', {
 		title :'Dashboard',
-		notes: notesDB
+		notes: notesDB,
+		scripts: ['main.js']
 	});
 });
 
@@ -33,15 +34,65 @@ router.get('/note/:id', async(req, res) => {
 	});
 });
 
+router.get('/modify-note/:id', async(req, res) => {
+	let id = req.params.id;
+	let note;
+
+	try {
+		note = await Note.findById(id);
+	} catch {
+		return res.render('url-not-found', {
+			title: '¡Oh oh!',
+			message: `La nota con id ${ id } no existe`
+		});
+	}
+
+	return res.render('modify-note', {
+		title: 'Modificar nota',
+		note,
+		scripts: ['modify-note.js']
+	});
+});
+
+router.put('/note/:id', async(req, res) => {
+	let id = req.params.id;
+	let body = req.body;
+	let note;
+
+	try {
+		note = await Note.findById(id);
+	} catch(err) {
+		return res.status(500).json({
+			ok: false,
+			err
+		})
+	}
+
+	note.title = body.title;
+	note.category = body.category;
+	note.description = body.description;
+
+	await Note.findByIdAndUpdate(id, note);
+
+	return res.json({
+		ok: true,
+		message: 'Note updated successfully'
+	});
+});
+
 router.delete('/note/:id', async(req, res) => {
 	let id = req.params.id;
-	let note =  await Note.findById(id);
-	
-	if(!note) return res.status(502).json({
-		ok: false,
-		masssage: 'The note doesnt exist'
-	});
+	let note;
 
+	try {
+		note =  await Note.findById(id);
+	} catch {
+		return res.status(502).json({
+			ok: false,
+			masssage: 'The note doesnt exist'
+		});
+	}
+	
 	note.available = false;
 	await Note.findByIdAndUpdate(id, note);
 
