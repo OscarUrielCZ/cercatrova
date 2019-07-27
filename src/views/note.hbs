@@ -1,18 +1,22 @@
 {{> header }}
 
 <div class="container">
-	<h4>{{ note.title }}</h4>
-	<p>{{ note.category }} - {{ toDate note.date }}</p>
-	<p>{{ note.description }}</p>
-	<a href="/" class="btn waves-effect waves-light page-yellow">
-		Regresar<i class="material-icons right">arrow_back</i>
-	</a>
-	<a id="delete-btn" class="btn waves-effect waves-light page-red">
-		Eliminar<i class="material-icons right">cancel</i>
-	</a>
-	<a href="/modify-note/{{ note._id }}" class="btn waves-effect waves-light page-orange">
-		Modificar<i class="material-icons right">edit</i>
-	</a>
+	<div>
+		<h4>{{ note.title }}</h4>
+		<p style="margin-top: 15px">{{ note.category }} - {{ toDate note.date }}</p>
+		<p>{{ note.description }}</p>
+	</div>
+	<div class="btns">
+		<a href="/" class="btn waves-effect waves-light page-yellow">
+			Regresar<i class="material-icons right">arrow_back</i>
+		</a>
+		<a id="delete-btn" class="btn waves-effect waves-light page-red">
+			Eliminar<i class="material-icons right">cancel</i>
+		</a>
+		<a href="/modify-note/{{ note._id }}" class="btn waves-effect waves-light page-orange">
+			Modificar<i class="material-icons right">edit</i>
+		</a>
+	</div>
 </div>
 
 {{> footer }}

@@ -2,20 +2,22 @@
 
 <div class="row">
 	<!-- Inicio de notas -->
-	{{#each notes }}
-		<div class="col s12 l4">
-			<div class="card">
-				<div class="card-content">
-					<span class="card-title">{{ this.title }}</span>
-					<p>{{ this.category }}</p>
-				</div>
-				<div class="card-action">
-					<a href="/note/{{ this._id }}">Ver más</a>
-					<a href="#" onclick="deleteNote('{{ this._id }}');" class="color-red">Eliminar</a>
-				</div>
-			</div>		
-		</div>
-	{{/each }}
+	<div class="notes">
+		{{#each notes }}
+			<div class="col s12 l4">
+				<div class="card">
+					<div class="card-content">
+						<span class="card-title">{{ this.title }}</span>
+						<p>{{ this.category }}</p>
+					</div>
+					<div class="card-action">
+						<a href="/note/{{ this._id }}">Ver más</a>
+						<a href="#" onclick="deleteNote('{{ this._id }}');" class="color-red">Eliminar</a>
+					</div>
+				</div>		
+			</div>
+		{{/each }}
+	</div>
 	<!-- Final de notas -->
 
 	<!-- Inicio de FAB -->

@@ -1,6 +1,6 @@
 {{> header }}
 
-<div class="container section">
+<div class="container">
 	<h4>Modifica tu nota</h4>
 	<form id="form">
 		<div class="row">
@@ -21,12 +21,14 @@
 				<label for="description">Descripción</label>
 			</div>
 		</div>
-		<a href="/note/{{ note._id }}" class="btn waves-effect waves-light page-red">
-			Cancelar<i class="material-icons right">cancel</i>
-		</a>
-		<a id="save-btn" class="btn waves-effect waves-light page-color">
-			Guardar<i class="material-icons right">update</i>
-		</a>
+		<div class="btns">
+			<a href="/note/{{ note._id }}" class="btn waves-effect waves-light page-red">
+				Cancelar<i class="material-icons right">cancel</i>
+			</a>
+			<a id="save-btn" class="btn waves-effect waves-light page-color">
+				Guardar<i class="material-icons right">update</i>
+			</a>
+		</div>
 	</form>
 </div>
 

@@ -1,6 +1,6 @@
 {{> header }}
 
-<div class="container section">
+<div class="container">
 	<h4>Crea una nota</h4>
 	<form id="form">
 		<div class="row">
@@ -17,16 +17,18 @@
 		</div>
 		<div class="row">
 			<div class="col s12">
-				<textarea name="description" id="description" class="materialize-textarea" required></textarea>
+				<textarea name="description" id="description" class="materialize-textarea" placeholder="Descripción" required></textarea>
 				<label for="description">Descripción</label>
 			</div>
 		</div>
-		<a href="/" class="btn waves-effect waves-light page-red">
-			Cancelar<i class="material-icons right">cancel</i>
-		</a>
-		<button id="submit" class="btn waves-effect waves-light page-color" type="submit">
-			Agregar<i class="material-icons right">send</i>
-		</button>
+		<div class="btns">
+			<a href="/" class="btn waves-effect waves-light page-red">
+				Cancelar<i class="material-icons right">cancel</i>
+			</a>
+			<button id="submit" class="btn waves-effect waves-light page-color" type="submit">
+				Agregar<i class="material-icons right">send</i>
+			</button>
+		</div>
 	</form>
 </div>
 
