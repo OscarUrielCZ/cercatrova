@@ -1,5 +1,5 @@
 body {
-	font-size: 35px;
+	font-size: 38px;
 }
 
 h4 {
@@ -76,4 +76,8 @@ input, textarea {
 form label {
 	margin-top: 0px !important;
 	font-size: 30px;
+}
+
+.card .card-content .card-title {
+	line-height: normal;
 }

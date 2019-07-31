@@ -4,11 +4,11 @@
 	<!-- Inicio de notas -->
 	<div class="notes">
 		{{#each notes }}
-			<div class="col s12 l4">
+			<div class="col s12 m6 l4">
 				<div class="card">
 					<div class="card-content">
 						<span class="card-title">{{ this.title }}</span>
-						<p>{{ this.category }}</p>
+						<p style="margin-left: 5px">{{ this.category }}</p>
 					</div>
 					<div class="card-action">
 						<a href="/note/{{ this._id }}">Ver más</a>
