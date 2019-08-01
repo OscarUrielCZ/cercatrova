@@ -1,37 +1,36 @@
 /* Background colors */
 
-.page-color {
+.bg-page-color {
 	background-color: #20bf6b;
 }
 
-.page-yellow {
+.bg-page-yellow {
 	background-color: #f7b731; 
 }
 
-.page-red {
+.bg-page-red {
 	background-color: #eb3b5a;
 }
 
-.page-orange {
+.bg-page-orange {
 	background-color: #fd9644;
 }
 
-.color-red {
+/* Text colors */
+
+.text-color-red {
 	color: #eb3b5a !important;
+}
+
+.text-color-blue {
+	color: #2d98da !important;
 }
 
 /* hover styles */
 
-.color-green:hover {
-	background-color: #20bf6b;
-	opacity: 0.7;
+.opacity-5:hover {
+	opacity: 0.5;
 }
-
-.color-red:hover {
-	opacity: 0.6;
-}
-
-/* Forms colors */
 
 /* label color */
 .input-field label {
