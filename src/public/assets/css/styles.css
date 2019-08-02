@@ -7,32 +7,37 @@
 	width: 99%;
 }
 
-.card {
-	border-radius: 0.75rem;
-}
-
 a:hover {
 	text-decoration: none;
 	cursor: pointer;
 }
 
-/*body {
-	color: #3d3d3d;
+/* FAB */
+
+.fab {
+	display: inline-block;
+	position: fixed;
+	width: 50px;
+	height: 50px;
+  	bottom: 30px;
+  	right: 30px;
+	text-align: center;
+	font-size: 18px;
+  	border-radius: 50%;
+	cursor: pointer;
+  	border: 0;
 }
 
-.notification {
-	margin: 20px 5px;
-	padding: 10px 15px;
-	border-radius: 5px;
-	color: black;
+.fab:hover {
+	opacity: 0.6;
 }
 
-.link-notification {
-	text-decoration: underline;
-	color: black;
-	float: right;
+.fab .fa {
+	line-height: 50px;
 }
 
 .btns {
-	margin-top: 25px;
-}*/
+	margin-top: 2rem;
+	display: flex;
+	justify-content: space-around;
+}

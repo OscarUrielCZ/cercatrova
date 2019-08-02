@@ -1,19 +1,27 @@
+/*
+* CHINESE PALETTE 
+*/
+
 /* Background colors */
 
 .bg-page-color {
-	background-color: #20bf6b;
+	background-color: #2f3542;
+}
+
+.bg-page-blue {
+	background-color: #70a1ff; 
 }
 
 .bg-page-yellow {
-	background-color: #f7b731; 
+	background-color: #eccc68; 
 }
 
-.bg-page-red {
-	background-color: #eb3b5a;
+.bg-page-coral {
+	background-color: #ff7f50;
 }
 
-.bg-page-orange {
-	background-color: #fd9644;
+.bg-page-green {
+	background-color: #7bed9f;
 }
 
 /* Text colors */
@@ -24,6 +32,10 @@
 
 .text-color-blue {
 	color: #2d98da !important;
+}
+
+.text-color-lightgray {
+	color: #747d8c;
 }
 
 /* hover styles */
