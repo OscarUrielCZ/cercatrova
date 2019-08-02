@@ -110,6 +110,8 @@ router.get('/create-note', (req, res) => {
 });
 
 router.post('/create-note', async(req, res) => {
+	console.log(req.body);
+
 	let note = new Note({
 		title: req.body.title,
 		category: req.body.category,

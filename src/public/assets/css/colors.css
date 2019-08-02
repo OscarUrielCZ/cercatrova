@@ -16,12 +16,16 @@
 	background-color: #eccc68; 
 }
 
-.bg-page-coral {
-	background-color: #ff7f50;
+.bg-page-wild-watermelon {
+	background-color: #ff6b81;
 }
 
 .bg-page-green {
 	background-color: #7bed9f;
+}
+
+.bg-page-dark {
+	background-color: #2f3542;
 }
 
 /* Text colors */

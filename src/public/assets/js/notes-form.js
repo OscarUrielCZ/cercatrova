@@ -1,18 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('submit').addEventListener('click', function(e) {
+		e.preventDefault();
 		let form = document.getElementById('form');
 		let title = document.getElementById('title').value;
 		let category = document.getElementById('category').value;
 		let description = document.getElementById('description').value;
+		
 		if(form.checkValidity()) {
-			e.preventDefault();
 			let data = JSON.stringify({
 				title,
 				category,
 				description
 			});
 
-			fetch('create-note', {
+			fetch('/create-note', {
 					headers: {
 						'Content-Type': 'application/json' 
 					},
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 				});
 		}
 	});
+	$('.toast').toast('show')
+	$('.toast').toast({ data-autohide: "false" })
 });
 
 createNotification = (text, linkText, link, bgColor) => {

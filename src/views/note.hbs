@@ -1,6 +1,6 @@
 {{> header }}
 
-<div class="container mt-3">
+<div class="mycontainer mx-auto mt-3">
 	<div class="card rounded">
 		<small class="card-header text-color-lightgray">{{ note.category }} @ {{ toDate note.date}}</small>
 		<div class="card-body">
@@ -10,24 +10,15 @@
 	</div>
 	<div class="btns">
 		<a href="/" class="btn bg-page-blue">
-			Regresar
+			Regresar <i class="fas fa-undo-alt"></i>
 		</a>
-		<a id="delete-btn" class="btn bg-page-coral">
-			Eliminar
+		<a href="" id="delete-btn" class="btn bg-page-wild-watermelon">
+			Eliminar <i class="fas fa-ban"></i>
 		</a>
-		<a href="/modify-note/{{ note._id }}" class="btn bg-page-green">
-			Modificar
+		<a href="/modify-note/{{ note._id }}" class="btn bg-page-yellow">
+			Modificar <i class="fas fa-pen"></i>
 		</a>
 	</div>
 </div>
-
-{{!-- <div class="container">
-	<div>
-		<h4>{{ note.title }}</h4>
-		<p style="margin-top: 15px">{{ note.category }} - {{ toDate note.date }}</p>
-		<p>{{ note.description }}</p>
-	</div>
-	
-</div> --}}
 
 {{> footer }}

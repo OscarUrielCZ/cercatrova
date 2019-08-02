@@ -41,3 +41,20 @@ a:hover {
 	display: flex;
 	justify-content: space-around;
 }
+
+.btn {
+	width: 170px;
+}
+
+.mycontainer {
+	width: 60%;
+}
+
+.notifications {
+	position: fixed;
+	top: 70px;
+	right: 20px;
+	height: auto;
+	max-height: 300px;
+	background-color: blue;
+}
