@@ -12,6 +12,29 @@ a:hover {
 	cursor: pointer;
 }
 
+.card-footer a {
+	margin: 0px 5px;
+}
+
+.navbar {
+	padding: 0.25rem;
+}
+
+.img-brand {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+}
+
+.img-brand img {
+	width: 100%;
+	height: auto;
+}
+
+#space {
+	margin-bottom: 68px;
+}
+
 /* FAB */
 
 .fab {
@@ -38,8 +61,6 @@ a:hover {
 
 .btns {
 	margin-top: 2rem;
-	display: flex;
-	justify-content: space-around;
 }
 
 .btn {
@@ -47,16 +68,15 @@ a:hover {
 }
 
 .mycontainer {
+	padding-top: 2rem;
 	width: 60%;
 }
 
 .notifications {
 	position: fixed;
-	top: 30px;
+	top: 80px;
 	right: 30px;
 	height: auto;
-	max-height: 300px;
-	overflow: hidden;
 }
 
 .toast {

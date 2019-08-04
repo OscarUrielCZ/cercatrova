@@ -1,83 +1,67 @@
 body {
-	font-size: 38px;
-}
-
-h4 {
-	font-size: 70px;
-	margin-top: 50px;
-}
-
-nav {
-	height: 100px;
-}
-
-div.notes {
-	margin-top: 50px;
+	font-size: 37px;
 }
 
 .card {
-	padding: 10px;
-	border-radius: 20px;
+	padding: 1rem;
 }
 
 .card-title {
-	margin-top: 20px;
-	margin-bottom: 35px !important;
+	font-size: 46px;
+}
+
+.card-footer a {
+	margin: 0px 10px;
+}
+
+.fab {
+	width: 130px;
+	height: 130px;
+	font-size: 46px;
+}
+
+.fab .fa {
+	line-height: 125px;
+}
+
+.navbar-brand {
+	font-size: 45px;
+}
+
+.img-brand {
+	width: 85px;
+	height: 85px;
+}
+
+#space {
+	margin-bottom: 105px;
+}
+
+h3 {
 	font-size: 60px !important;
 }
 
-.btn-large {
-	height: 130px !important;
-	width: 130px !important;
+.mycontainer {
+	width: 90%;
 }
 
-.btn-floating.btn-large i {
-	line-height: 133px;
-}
-
-.btn-large i {
-	font-size: 60px !important;
-}
-
-button, a, i {
-	font-size: 35px !important;
-}
-
-.btns {
-	margin-top: 70px;
-	display: flex;
-	justify-content: space-around;
-	/*text-align: center;*/
-}
-
-.btn {
-	height: auto !important;
-	padding: 20px !important;
-}
-
-.brand-logo {
-	font-size: 60px !important;
-	line-height: 95px;
-}
-
-.container {
-	margin-top: 90px;
-}
-
-form {
-	margin-top: 40px;
-}
+/* Forms */
 
 input, textarea {
 	font-size: inherit !important;
-	margin-top: 15px !important;
+	padding: 1.5rem !important;
 }
 
-form label {
-	margin-top: 0px !important;
-	font-size: 30px;
+.btns {
+	margin-top: 4rem;
 }
 
-.card .card-content .card-title {
-	line-height: normal;
+.btn {
+	font-size: inherit;
+	width: 270px;
+	height: auto;
+}
+
+.notifications {
+	top: 120px;
 }
