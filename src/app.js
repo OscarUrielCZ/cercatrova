@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const app = require('./config/server');
 
-mongoose.connect(app.get('urlDB'), { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(app.get('urlDB'), { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 	.then(() => console.log('Succesful connection to database'))
 	.catch(err => console.log(err));
 	

@@ -1,10 +1,15 @@
 const express = require('express');
-
+const router = express.Router();
+const front = require('../controllers/front');
 const Note = require('../models/Note');
 
-const router = express.Router();
+router.get('/', (req, res) => {
+	return res.render('index', {
+		title: 'Home'
+	});
+});
 
-router.get('/', async(req, res) => {
+router.get('/notas', async(req, res) => {
 	let notesDB = await Note.find({ available: true });
 
 	return res.render('index', {
@@ -27,9 +32,11 @@ router.get('/note/:id', async(req, res) => {
 		});
 	}
 
+	console.log(note.description);
+
 	return res.render('note', {
 		title: 'Nota',
-		note: note,
+		note,
 		scripts: ['note.js']
 	});
 });

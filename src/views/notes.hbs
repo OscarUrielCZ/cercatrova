@@ -1,0 +1,23 @@
+{{> header }}
+
+<div class="row mx-auto">
+	{{#each notes }}
+		<div class="col-12 col-lg-6 col-xl-4">
+			<div class="card rounded">
+				<div class="card-body">
+					<h5 class="card-title text-center">{{ this.title }}</h5>
+					<p class="card-text">{{ this.category }}</p>
+				</div>
+				<div class="card-footer">
+					<a href="/note/{{ this._id }}" class="text-color-blue opacity-5">VER MÁS</a>
+					<a onclick="deleteNote('{{ this._id }}');" class="text-color-red opacity-5">ELIMINAR</a>
+				</div>
+			</div>		
+		</div>
+	{{/each }}
+</div>
+<a href="/create-note" class="fab bg-page-yellow text-white">
+	<i class="fa fa-plus"></i>
+</a>
+
+{{> footer}}

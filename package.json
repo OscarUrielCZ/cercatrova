@@ -5,15 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "style": "nodemon src/app.js -e 'hbs style'"
+    "dev": "npx nodemon src/app.js",
+    "style": "npx nodemon src/app.js -e 'hbs style'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "hbs": "^4.0.4",
+    "hbs": "^4.0.6",
     "mongoose": "^5.5.3",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.9.1",

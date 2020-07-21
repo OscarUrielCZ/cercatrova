@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const hbs = require('hbs');
 
 const app = express();
-const indexRoutes = require('../routes/index');
+const viewRoutes = require('../routes/front');
+// const backRoutes = require('../routes/back');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', indexRoutes);
+app.use('/', viewRoutes);
+// app.use('/api', backRoutes);
 
 module.exports = app;

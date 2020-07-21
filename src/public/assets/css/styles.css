@@ -7,6 +7,14 @@
 	width: 99%;
 }
 
+.nav-link {
+	color: white;
+}
+
+.nav-link:hover {
+	color: #eccc68;
+}
+
 a:hover {
 	text-decoration: none;
 	cursor: pointer;
